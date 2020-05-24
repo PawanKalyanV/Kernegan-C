@@ -1,4 +1,4 @@
-/* Prints all input lines greater that are longer than 80 characters. */
+/* Prints all input lines that are longer than 80 characters. */
 
 #include<stdio.h>
 
