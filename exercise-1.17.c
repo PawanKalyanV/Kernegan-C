@@ -11,7 +11,7 @@ int main()
     while ((len = getline(line, MAXLINE)) > 0)
         if (len >= max)
         {
-          printf( "%s", len);
+          printf( "%s", line);
           return 0;
         }
 }
