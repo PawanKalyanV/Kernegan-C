@@ -1,4 +1,4 @@
-
+/* Prints all input lines greater that are longer than 80 characters. */
 #include<stdio.h>
 #define MAXLINE 1000
 int getline(char line[], int maxline);
