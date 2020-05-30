@@ -1,3 +1,4 @@
+/* Remove comments errors like brackets braces */
 #include<stdio.h>
 int bracket,brace,parenthsis;
 void doublecoment();
