@@ -1,10 +1,15 @@
-#include<stdio.h>
+
+/* conversion of fahrenhiet into celcius */
+
+#include<stdio.h
+	>
 int main()
 {
-    float celcius,fahrn;
+    float celcius, fahrn;
     int lowr=0,uppr=300,step=20;
     fahrn=lowr;
     printf("celcius    fahrenhiet \n");
+
     while(fahrn<=uppr)
     {
         celcius=(5.0/9.0)*(fahrn-32);
