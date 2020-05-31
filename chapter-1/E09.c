@@ -1,8 +1,16 @@
+
+/*
+ * coping its input to its output replacing one or more blanks
+ * by a single blank
+*
+* /
 #include<stdio.h>
+
 int main()
 {
     int c, end_c; /* end character */
     end_c=c; /* we initialize character in end char for comparision */
+
     while (( c = getchar() ) != EOF )
     {
         if(c == ' ')
@@ -12,8 +20,10 @@ int main()
         }
         else
             putchar(c); /*  simply print char until we enter space */
-            end_c=c; /* end of the character should store in end_c for comparision  of next char we entered */
+            end_c=c; /* end of the character should store in end_c 
+			for comparision  of next char we entered */
 
 
-    }return 0;
+    }
+    return 0;
 }
