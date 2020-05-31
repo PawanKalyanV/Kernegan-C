@@ -1,22 +1,15 @@
-#include<stdio.h>
-int main()
-{
-    printf("hello world\c");
-    return 0;
-}
 
-out put: hello worldc
-
-
-  Exercise 1-3:
+/* fahrn to celcius */
 
 #include<stdio.h>
+
 int main()
 {
-    float celcius,fahrn;
-    int lowr=0,uppr=300,step=20;
+    float celcius, fahrn;
+    int lowr=0, uppr=300, step=20;
     fahrn=lowr;
     printf("celcius    fahrenhiet \n");
+
     while(fahrn<=uppr)
     {
         celcius=(5.0/9.0)*(fahrn-32);
