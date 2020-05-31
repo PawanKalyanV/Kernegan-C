@@ -1,24 +1,47 @@
+
 /* Remove comments from program */
+
 #include<stdio.h>
+
 void comment();
+
+void quote();
+
 int main()
 {
     int c;
-    while((c = getchar()) != EOF)
-    {
-        if (c == '/')
-        if (c == '*')
-        if (c == '/' && c=='/')
-            comment();
 
-    }return 0;
+    while (( c = getchar() ) != EOF )
+    {
+       if (c == '"');
+           quote();
+
+        if (c == '/')
+        c= getchar();
+        if (c == '*')
+            comment();
+    
+    } 
+    return 0;
 }
+
 void comment()
 {
     int c;
+
     while (c != '*' && c != '/')
     {
-        c=getchar();
+        c = getchar();
     }
 
+}
+
+void quote()
+{
+     int c;
+
+     while (c !='"')
+     {
+	 c = getchar();
+     }
 }
