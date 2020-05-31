@@ -1,10 +1,17 @@
+
+/* word counting */
+
 #include<stdio.h>
+
 #define IN
+
 #define OUT
+
 int main()
 {
-    int c,nl=0,nc=0,nw=0,state;
+    int c, nl=0, nc=0, nw=0, state;
     state = 'OUT';
+
     while ((c = getchar()) != EOF )
     {
            ++nc;
@@ -17,5 +24,6 @@ int main()
             state = 'IN';
            ++nw;
         }
-    } printf ("%d %d %d \n", nl, nw, nc );
+    }
+     printf ("%d %d %d \n", nl, nw, nc );
 }
