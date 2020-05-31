@@ -1,7 +1,12 @@
+
+/* prints input one word per line */
+
 #include<stdio.h>
+
 int main()
 {
-    int c,end_c=c;
+    int c, end_c = c;
+
     while (( c = getchar()) != EOF )
     {
         if (c ==' ')
@@ -13,6 +18,6 @@ int main()
           putchar(c);
           end_c=c;
     }
-     return 0;
+      return 0;
 
 }
