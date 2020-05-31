@@ -1,26 +1,35 @@
-/* Remove comments errors like brackets braces */
-#include<stdio.h>
-int bracket,brace,parenthsis;
+/*To find rudimentory syntax errors like unbalanced  brackets braces
+ parenthesis */
+
+#include <stdio.h>
+
+extern int bracket ,brace ,parenthsis;
+
 void doublecoment();
+
 void singlecoment();
+
 void syntax();
+
 int main()
+
 {
     int c;
-    extern int bracket,brace,parenthsis;
-    while((c = getchar()) != EOF)
+
+    while ((c = getchar()) != EOF)
     {
         if (c == '/' )
         if (c == '*')
-         doublecoment();
-        else if (c == '/' || c == '"')
-          singlecoment();
+         comentstarted();
+        else if (c == '/'' || c == '"')
+          singlequoted();
         else
             syntax();
 
-    }return 0;
+    }
+    return 0;
 }
-void doublecoment()
+void comentstarted()
 {
     int c;
     while (c != '*' || c != '/')
@@ -32,7 +41,7 @@ void doublecoment()
 void singlecoment()
 {
     int c;
-    while (c != '/' || c != '"')
+    while (c != '/'' || c != '"')
     {
         c = getchar();
     }
@@ -40,7 +49,7 @@ void singlecoment()
 void syntax()
 {
     int c;
-    extern int bracket,brace,parenthsis;
+
     if (c == '[')
         ++bracket;
     if (c == ']')
