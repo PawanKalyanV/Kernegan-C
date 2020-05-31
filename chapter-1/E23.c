@@ -1,3 +1,4 @@
+/* Remove comments from program */
 #include<stdio.h>
 void comment();
 int main()
