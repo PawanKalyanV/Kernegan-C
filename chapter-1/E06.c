@@ -1,8 +1,13 @@
+
+/* character printing */
+
 #include<stdio.h>
+
 int main()
 {
     int c;
-    while((c=getchar()) !=EOF )
+
+    while ((c = getchar()) !=EOF )
         printf("%d",c);
-    return 0;
+        return 0;
 }
