@@ -1,9 +1,11 @@
-/*To find rudimentory syntax errors like unbalanced  brackets braces
- parenthesis */
+/*
+ * Finds rudimentory syntax errors like unbalanced  brackets, braces
+ * and parenthesis.
+ */
 
 #include <stdio.h>
 
-extern int bracket ,brace ,parenthsis;
+extern int bracket, brace, parenthsis;
 
 void doublecoment();
 
@@ -12,7 +14,6 @@ void singlecoment();
 void syntax();
 
 int main()
-
 {
     int c;
 
@@ -29,6 +30,7 @@ int main()
     }
     return 0;
 }
+
 void comentstarted()
 {
     int c;
@@ -38,6 +40,7 @@ void comentstarted()
     }
 
 }
+
 void singlecoment()
 {
     int c;
@@ -46,6 +49,7 @@ void singlecoment()
         c = getchar();
     }
 }
+
 void syntax()
 {
     int c;
