@@ -7,9 +7,9 @@
 
 extern int bracket, brace, parenthsis;
 
-void doublecoment();
+void comentstarted();
 
-void singlecoment();
+void singlequoted();
 
 void syntax();
 
@@ -20,13 +20,13 @@ int main()
     while ((c = getchar()) != EOF)
     {
         if (c == '/' )
+        c = getchar();
         if (c == '*')
          comentstarted();
         else if (c == '/'' || c == '"')
           singlequoted();
         else
             syntax();
-
     }
     return 0;
 }
@@ -34,16 +34,17 @@ int main()
 void comentstarted()
 {
     int c;
+    
     while (c != '*' || c != '/')
     {
         c = getchar();
     }
-
 }
 
-void singlecoment()
+void singlequoted()
 {
     int c;
+
     while (c != '/'' || c != '"')
     {
         c = getchar();
