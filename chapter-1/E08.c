@@ -1,7 +1,12 @@
+
+/* counting number of blanks and tabs newline */
+
 #include<stdio.h>
+
 int main()
 {
-    int c,blank=0,tab=0,newline=0;
+    int c, blank=0, tab=0, newline=0;
+
     while((c=getchar() !=EOF))
           if(c=='\n')
             ++newline;
