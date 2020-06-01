@@ -14,12 +14,13 @@ int main()
     while (( c = getchar() ) != EOF )
     {
        if (c == '"');
+       c = getchar();
            quote();
 
         if (c == '/')
         c= getchar();
         if (c == '*')
-            comment();
+           comment();
     
     } 
     return 0;
@@ -27,11 +28,14 @@ int main()
 
 void comment()
 {
-    int c;
+    int c, i;
+    c = getchar();
+    i = getchar();
 
-    while (c != '*' && c != '/')
+    while (c != '*' || i != '/')
     {
-        c = getchar();
+	c = i;
+        i = getchar();
     }
 
 }
@@ -39,9 +43,11 @@ void comment()
 void quote()
 {
      int c;
+     c = getchar();
 
      while (c !='"')
      {
 	 c = getchar();
      }
+      putchar('"');
 }
