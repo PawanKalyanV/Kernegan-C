@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-extern int bracket, brace, parenthsis;
+int bracket, brace, parenthsis;
 
 void comentstarted();
 
@@ -23,7 +23,7 @@ int main()
         c = getchar();
         if (c == '*')
          comentstarted();
-        else if (c == '/'' || c == '"')
+        else if (c == '\'' || c == '"')
           singlequoted();
         else
             syntax();
@@ -33,19 +33,30 @@ int main()
 
 void comentstarted()
 {
-    int c;
-    
-    while (c != '*' || c != '/')
+    int c,i;
+    c = getchar();
+    i = getchar();
+
+    while (c != '*' || i != '/')
     {
-        c = getchar();
+        c = i;
+	i = getchar();
     }
 }
 
 void singlequoted()
 {
     int c;
+    c = getchar();
 
-    while (c != '/'' || c != '"')
+    while (c != '\'')
+       if (c != '"')
+    {
+        c = getchar();
+    }
+
+    while (c != '"')
+       if (c != '\'')
     {
         c = getchar();
     }
@@ -57,15 +68,15 @@ void syntax()
 
     if (c == '[')
         ++bracket;
-    if (c == ']')
+    else if (c == ']')
         --bracket;
-    if (c == '{')
+    else if (c == '{')
         ++brace;
-    if (c == '}')
+    else if (c == '}')
         --brace;
-    if (c == '(')
+    else if (c == '(')
         ++parenthsis;
-    if (c == ')')
+    else if (c == ')')
         --parenthsis;
     if (bracket<0 || bracket>0 )
        {
