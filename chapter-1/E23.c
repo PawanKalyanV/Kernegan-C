@@ -9,19 +9,23 @@ void quote();
 
 int main()
 {
-    int c;
+    int c, d;
 
     while (( c = getchar() ) != EOF )
     {
-       if (c == '"');
-       c = getchar();
+       if (c == '"')
+       {
+	  putchar(c);
            quote();
+       }
 
         if (c == '/')
-        c= getchar();
-        if (c == '*')
+	{
+        d= getchar();
+        if (d == '*')
            comment();
-    
+	}
+        putchar(c);
     } 
     return 0;
 }
@@ -32,10 +36,10 @@ void comment()
     c = getchar();
     i = getchar();
 
-    while (c != '*' || i != '/')
+    while (c != '*' && i != '/')
     {
 	c = i;
-        i = getchar();
+	i = getchar();
     }
 
 }
@@ -45,9 +49,10 @@ void quote()
      int c;
      c = getchar();
 
-     while (c !='"')
+     while (c != '"')
      {
-	 c = getchar();
+      putchar(c);
+     c = getchar();
      }
-      putchar('"');
+     putchar(c); 
 }
