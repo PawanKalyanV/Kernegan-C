@@ -19,13 +19,17 @@ int main()
            quote();
        }
 
-        if (c == '/')
+       else if (c == '/')
 	{
         d= getchar();
         if (d == '*')
            comment();
+	else
+         putchar(c);
+ 	 putchar(d);
 	}
-        putchar(c);
+       else
+	  putchar(c);
     } 
     return 0;
 }
