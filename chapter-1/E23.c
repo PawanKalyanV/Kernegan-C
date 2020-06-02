@@ -1,5 +1,10 @@
 
-/* Remove comments from program */
+// * Remove comments from program 
+// * printf("/* hi */");
+// * /*hi */
+// * a=a/b
+// * char a= '\"'
+ 
 
 #include<stdio.h>
 
