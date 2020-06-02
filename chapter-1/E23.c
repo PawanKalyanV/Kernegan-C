@@ -1,16 +1,18 @@
 
-// * Remove comments from program 
+/* * Remove comments from program */
 // * printf("/* hi */");
 // * /*hi */
 // * a=a/b
 // * char a= '\"'
- 
+// * /* comment */
 
 #include<stdio.h>
 
-void comment();
+void in_comment();
 
-void quote();
+void in_doublequote();
+
+void in_singlequote();
 
 int main()
 {
@@ -21,25 +23,33 @@ int main()
        if (c == '"')
        {
 	  putchar(c);
-           quote();
+           in_doublequote();
        }
-
-       else if (c == '/')
+       else if ( c == '\'')
+       {
+         putchar(c);
+	 in_singlequote();
+       }
+        else if (c == '/')
 	{
         d= getchar();
         if (d == '*')
-           comment();
-	else
+           in_comment();
+       else
+       {
          putchar(c);
  	 putchar(d);
 	}
+	}
        else
+       {
 	  putchar(c);
+       }
     } 
     return 0;
 }
 
-void comment()
+void in_comment()
 {
     int c, i;
     c = getchar();
@@ -53,7 +63,7 @@ void comment()
 
 }
 
-void quote()
+void in_doublequote()
 {
      int c;
      c = getchar();
@@ -64,4 +74,16 @@ void quote()
      c = getchar();
      }
      putchar(c); 
+}
+
+void in_singlequote()
+{
+	int c;
+	c = getchar();
+	while (c != '\'')
+        {
+	 putchar(c);
+	 c = getchar();
+	}
+	putchar(c);
 }
