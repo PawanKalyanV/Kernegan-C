@@ -1,7 +1,7 @@
 /*
  * Finds rudimentory syntax errors like unbalanced  brackets, braces
  * and parenthesis.
- */
+*/
 
 #include <stdio.h>
 
@@ -15,134 +15,122 @@ void in_doublequoted();
 
 int main()
 {
-    int c;
+    int c, comentstarted, singlequoted, doublequoted;
 
     while (( c = getchar()) != EOF )
   {
         if ( c == '/' )
 	 {
-          putchar(c);
           c = getchar();
 	 }
         if ( c == '*' )
-	{
-	  putchar(c);
+	{ 
+	  ++comentstarted;
           in_comentstarted();
-	}
+	  if (comentstarted > 0 ||  comentstarted < 0)
+	   {
+	     printf(" error in comment ");
+	   }
+         } 
         else if ( c == '\'' )
-	{
-	   putchar(c);
+	 {
+	   ++singlequoted; 
           in_singlequoted();
-	}
+	  if( singlequoted > 0 || singlequoted < 0 )
+           {
+	    printf(" error in sinlequote ");	 
+	   }
+	 }
 	else if ( c == '"')
-	{
-	   putchar(c);
+	 {
+          ++doublequoted;
 	  in_doublequoted();
-	}
+	  if ( doublequoted > 0 || doublequoted < 0 )
+	   {
+            printf(" error in double quote");
+	   }
+	 }
         else if ( c == '(' || c == '{' || c == '[' )
          {
-	
-             if (c == '[')
-             {
-               putchar(c);
+	    
+             if ( c == '[' )
                ++bracket;
-	     }
-             if (c == ']')
-	     {
-	       putchar(c);
+	     if ( c == ']' )
                --bracket;
-	     }
-             if (c == '{')
-	     {
-	       putchar(c);
-               ++brace;
-	     }
-             if (c == '}')
-	     {
-	       putchar(c);
-               --brace;
-	     }
-             if (c == '(')
-	     {
-	      putchar(c);
-              ++parenthsis;
-	     }
-             if (c == ')')
-	     {
-	      putchar(c);
-              --parenthsis;
-	     }
-
-            if (bracket <0 && bracket>0 )
-             {
+	     if (bracket > 0 || bracket < 0 )
                printf("brackets not matched\n");
-             }
-           if (brace<0 && brace>0 )
-             {
+            
+	     if ( c == '{' )
+               ++brace;
+	     if ( c == '}' )
+               --brace;
+	     if (brace > 0 || brace < 0 )
                printf("braces not matched\n");
-             }
-          if (parenthsis<0 && parenthsis>0 )
-            {
+            
+	     if ( c == '(' )
+              ++parenthsis;
+             if ( c == ')' )
+              --parenthsis;
+             if (parenthsis > 0 || parenthsis < 0 )
               printf("parenthsis not matched\n");
-            }   
-        }
-
-    else
-    { 
-	putchar(c);
-    }
+         }
+  }
       
     return 0;
-  }
+}
+
+ /* 
+ * print all characters with in comment
+ * display error if syntax of comment missed
+ */
 
 void in_comentstarted()
 {
-    int c, i;
+    int c, i, comentstarted;
     c = getchar();
+    i = getchar();
 
-    while ( c == '*')
-    { 
-	putchar(c);
-       i = getchar();
-      if ( i == '/')
-      {
-       putchar(i);
-      }
-      else 
-      {
-	printf(" error in comment ");
-      }	
-     
+    while ( c != '*' && i != '/' )
+    {
+      c = i;
+      i = getchar(); 
     }
-     putchar(c);
+    --comentstarted;
 }
+
+  /*
+  *  print all characters in doubleqoute
+  *  untill doublequote occured 
+  */
 
 void in_doublequoted()
 {
-  int c;
+  int c, doublequoted;
   c = getchar();
 
   while ( c != '"')
   {
-    putchar(c);
     c = getchar();
   }
-  putchar(c);
+  --doublequoted;
 }
 
+ /*
+ * print character in singel quote
+ * untill single quote occured
+ */
 
 void in_singlequoted()
 {
-    int c;
+    int c, singlequoted;
     c = getchar();
 
     while ( c != '\'' )
         
     {
-	putchar(c);
        c = getchar();
     }
-    putchar(c);
+    --singlequoted;
  }
-}
+
 
