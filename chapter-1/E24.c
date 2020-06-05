@@ -7,76 +7,75 @@
 
 int bracket, brace, parenthsis;
 
-void in_comentstarted();
+int  coment, singlequote, doublequote;
 
-void in_singlequoted();
+void in_coment();
 
-void in_doublequoted();
+void in_singlequote();
+
+void in_doublequote();
 
 int main()
 {
-    int c, comentstarted, singlequoted, doublequoted;
+    int c;
 
     while (( c = getchar()) != EOF )
   {
         if ( c == '/' )
-	 {
+       {
           c = getchar();
-	 }
         if ( c == '*' )
-	{ 
-	  ++comentstarted;
-          in_comentstarted();
-	  if (comentstarted > 0 ||  comentstarted < 0)
+         { 
+	   ++coment;
+           in_coment();
+	  if (coment != 0)
 	   {
 	     printf(" error in comment ");
 	   }
-         } 
+	 }
+       } 
         else if ( c == '\'' )
 	 {
-	   ++singlequoted; 
-          in_singlequoted();
-	  if( singlequoted > 0 || singlequoted < 0 )
+	   ++singlequote; 
+           in_singlequote();
+	  if( singlequote != 0 )
            {
 	    printf(" error in sinlequote ");	 
 	   }
 	 }
 	else if ( c == '"')
 	 {
-          ++doublequoted;
-	  in_doublequoted();
-	  if ( doublequoted > 0 || doublequoted < 0 )
+           ++doublequote;
+	   in_doublequote();
+	  if ( doublequote != 0 )
 	   {
             printf(" error in double quote");
 	   }
 	 }
-        else if ( c == '(' || c == '{' || c == '[' )
+        else 
          {
 	    
              if ( c == '[' )
                ++bracket;
-	     if ( c == ']' )
+	  else if ( c == ']' )
                --bracket;
-	     if (bracket > 0 || bracket < 0 )
-               printf("brackets not matched\n");
-            
-	     if ( c == '{' )
+	  else if ( c == '{' )
                ++brace;
-	     if ( c == '}' )
+	  else if ( c == '}' )
                --brace;
-	     if (brace > 0 || brace < 0 )
-               printf("braces not matched\n");
-            
-	     if ( c == '(' )
+          else if ( c == '(' )
               ++parenthsis;
-             if ( c == ')' )
+          else if ( c == ')' )
               --parenthsis;
-             if (parenthsis > 0 || parenthsis < 0 )
-              printf("parenthsis not matched\n");
          }
-  }
-      
-    return 0;
+   }
+      if (bracket != 0 )
+        printf("brackets not matched\n");
+      if (brace != 0 )
+        printf("braces not matched\n");
+      if (parenthsis != 0 )
+        printf("parenthsis not matched\n");
+      return 0;     
 }
 
  /* 
@@ -84,9 +83,9 @@ int main()
  * display error if syntax of comment missed
  */
 
-void in_comentstarted()
+void in_coment()
 {
-    int c, i, comentstarted;
+    int c, i;
     c = getchar();
     i = getchar();
 
@@ -95,7 +94,7 @@ void in_comentstarted()
       c = i;
       i = getchar(); 
     }
-    --comentstarted;
+    --coment;
 }
 
   /*
@@ -103,16 +102,16 @@ void in_comentstarted()
   *  untill doublequote occured 
   */
 
-void in_doublequoted()
+void in_doublequote()
 {
-  int c, doublequoted;
+  int c;
   c = getchar();
 
-  while ( c != '"')
+  while ( c != '"' )
   {
     c = getchar();
   }
-  --doublequoted;
+  --doublequote;
 }
 
  /*
@@ -120,9 +119,9 @@ void in_doublequoted()
  * untill single quote occured
  */
 
-void in_singlequoted()
+void in_singlequote()
 {
-    int c, singlequoted;
+    int c;
     c = getchar();
 
     while ( c != '\'' )
@@ -130,7 +129,7 @@ void in_singlequoted()
     {
        c = getchar();
     }
-    --singlequoted;
+    --singlequote;
  }
 
 
