@@ -1,21 +1,41 @@
 
-/* entab */
+ /*
+ * program for entab which replaces all the strings of blanks 
+ * by a suitable number of tabs and blanks 
+ */
 
 #include<stdio.h>
 
-#define tab 4
+#define TAB 4
 
 int main()
 {
-  int c;
+  int c, i, count, reminder, quotient;
 
- while ( c = getchar() != EOF )
-   {
-      ++count;
-     if ( count = 4 )
-      putchar('\t');
-     else
-      putchar(' ');
+  while (( c = getchar() ) != EOF )
+  {
+    if (c != ' ')
+        ++count;
+       { 	
+	if ( count < TAB)
+	   for(i=0; i<TAB;i++)
+	   {
+	    putchar(' ');
+	   }
+	else   
+	  {
+           reminder = count % TAB;
+	     {
+            for  ( i=0; i<reminder; i++ )
+	      putchar(' ');
+	     }
+	   quotient = count/TAB;
+	     {
+            for (i=0; i<quotient; i++)
+	      putchar('\t');
+	     }
+	   } 
+         }
+       putchar(' ');
    }
-  return 0;
-}
+ } 
