@@ -89,7 +89,7 @@ void in_coment()
     c = getchar();
     i = getchar();
 
-    while ( c != '*' && i != '/' )
+    while ( c != '*' && i != '/' || c != EOF )
     {
       c = i;
       i = getchar(); 
@@ -107,7 +107,7 @@ void in_doublequote()
   int c;
   c = getchar();
 
-  while ( c != '"' )
+  while ( c != '"' || c != EOF )
   {
     c = getchar();
   }
@@ -124,7 +124,7 @@ void in_singlequote()
     int c;
     c = getchar();
 
-    while ( c != '\'' )
+    while ( c != '\'' || c != EOF )
         
     {
        c = getchar();
