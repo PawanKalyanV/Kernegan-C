@@ -9,19 +9,35 @@
 
 int main()
 {
-  int c, end_char;
-
+  int c, i, tab=0, space=0, end_char;
+ {
     while (( c = getchar() ) != EOF )
-	{
-          putchar(c);
-	 while ( c == '\n' )
-          {
-            end_char = c;
-	    if (end_char != ' ' || end_char != '\t' )
-		putchar(c);
-	        --c;
-	  }
+     {
+        {
+         if ( c == '\t' )
+	       ++tab;
+	 else if ( c ==' ' )
+	     ++space;
 	}
- }
+         end_char = c; 
+     	
+      {
+        if (c != '\n')
+         {
+          if ( end_char == ' ' || end_char == '\t' )
+            {
+             for ( i=0; i<=space; i++ )
+             putchar(' ');
+	     for ( i=0; i<=tab; i++ )
+             putchar('\t');
+	    }
+	  }
+	else      
+	putchar(c);
+       }	
+     }
+   } 
+}
+	 
 
           
