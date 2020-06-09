@@ -10,32 +10,26 @@
 
 int main()
 {
-  int c, i, count, reminder, quotient;
+int c, i,  space, tab, reminder, quotient;
 
-  while (( c = getchar() ) != EOF )
-  {
-    if (c != ' ')
-        ++count;
-       { 	
-	if ( count < TAB)
-	   for(i=0; i<TAB;i++)
-	   {
-	    putchar(' ');
-	   }
-	else   
-	  {
-           reminder = count % TAB;
-	     {
-            for  ( i=0; i<reminder; i++ )
-	      putchar(' ');
-	     }
-	   quotient = count/TAB;
-	     {
-            for (i=0; i<quotient; i++)
-	      putchar('\t');
-	     }
-	   } 
-         }
-       putchar(' ');
-   }
- } 
+    while (( c = getchar() ) != EOF )
+    {
+       {
+        if ( c == ' ' )
+	  ++space;
+	if (c == '\t' )
+          ++tab;
+	if ( c == '\n' )
+          {
+            quotient = (space+tab)/TAB;
+	    for ( i=0; i<=quotient; i++ )
+            putchar('\t');
+	    reminder = (space+tab)%TAB;
+	    for ( i=0; i<=reminder; i++ )
+	    putchar(' '); 
+          }
+       else
+         putchar(c);
+     }
+   } 
+}   
