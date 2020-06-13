@@ -4,17 +4,19 @@
 
 int main()
 {
-  int c, n=0, count, end_c;
+  int c, n=0, end_c=EOF;
 
  while (( c = getchar() ) != EOF )
-  
-      if ( c == ' ' )
-       {
+   {
+      if ( c != ' ' )
 	 {
           if ( end_c == ' ' )
            n++;
          }
-       }
-       printf("%d",n);
+      if ( c == '\n' )
+         {
+         printf( "%d",n );
+         }
        end_c = c;
+   }  
 }
