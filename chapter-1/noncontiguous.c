@@ -16,7 +16,8 @@ int main()
       if ( c == '\n' )
          {
          printf( "%d",n );
-         }
+	 n=0;
+         }   
        end_c = c;
    }  
 }
