@@ -17,21 +17,21 @@ int c, n, i, end_c, reminder, quotient;
        {
 
         if ( c == ' ' && end_c != ' ' )
-	{     
+	    n++;     
         if ( c == ' ' && end_c == ' ' )
             n++;
 	 if ( c != ' ' && end_c == ' ' )
 	    {
              quotient = n/TAB;
-	     for ( i=0; i<=quotient; i++ )
-             putchar('\t');
+	     for ( i=0; i<quotient; i++ )
+             putchar('*');
 	     reminder = n%TAB;
-	     for ( i=0; i<=reminder; i++ )
-	     putchar(' '); 
+	     for ( i=0; i<reminder; i++ )
+	     putchar('#');
 	     n=0;
 	    }
 	 }
-       }
+        if ( c != ' ' )
 	 putchar(c);
 	 end_c=c;
        
