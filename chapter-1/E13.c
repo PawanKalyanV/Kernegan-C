@@ -22,7 +22,6 @@ int main()
 	   }
            end_c=c;
       }
-       for (i=0 ; i<=a[24] ; i++)
-	   printf( "%d\n",a[i] );
-              
+       for ( i=0 ; i<24 ; i++ )
+	   printf( "%d\n",a[i] );              
 }
