@@ -3,34 +3,26 @@
 
 #include<stdio.h>
 
+int a[24]={0};
+
 int main()
 {
-    int c;
+	int c, i, end_c=' ', n=0;
 
     while ( (c = getchar() ) != EOF)
-    {
-        if (c == ' ' )
-        putchar('\n');
-        else
-        putchar('|');
-    } 
-    return 0;
-}
-
-#include<stdio.h>
-
-int main()
-{
-    int c;
-
-    while ((c = getchar()) != EOF )
-    {
-
-     if (c == ' ')
-        putchar(' ');
-     else
-        putchar('_');
-        putchar('\n');
-    }
-    return 0;
+     {
+       if ( c != ' ' && end_c == ' ' )
+           n++;
+       if ( c != ' ' && end_c != ' ' )
+	   n++;
+       if ( c == ' ' && end_c != ' ' )
+	   {
+	    a[n]=a[n]++;
+            n=0;
+	   }
+           end_c=c;
+      }
+       for (i=0 ; i<=a[24] ; i++)
+	   printf( "%d\n",a[i] );
+              
 }
